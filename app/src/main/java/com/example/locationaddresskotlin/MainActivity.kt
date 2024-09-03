@@ -61,7 +61,9 @@ class MainActivity : AppCompatActivity() {
             var location = p0.lastLocation
             var geoCoder = Geocoder(applicationContext,Locale.getDefault())
             var addressList = geoCoder.getFromLocation(location!!.latitude, location!!.longitude,1) as ArrayList<Address>
-            locationText.text = addressList[0].getAddressLine(0)
+            if(addressList.size>0){
+                locationText.text = addressList[0].getAddressLine(0)
+            }
         }
     }
 
